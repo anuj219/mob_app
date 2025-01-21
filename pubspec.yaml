@@ -30,8 +30,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
   curved_navigation_bar:
      ^1.0.6
+
+
+  
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -59,6 +64,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/snippet.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

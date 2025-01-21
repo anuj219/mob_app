@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 class Cards1 extends StatelessWidget {
@@ -6,111 +8,228 @@ class Cards1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: _Screen(),
+      home: Screen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class _Screen extends StatelessWidget {
-  const _Screen();
+class Screen extends StatefulWidget {
+  const Screen({super.key});
+  @override
+  State<Screen> createState() => _ScreenState();
+}
 
+class _ScreenState extends State<Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Cards Example"),
-        ),
-        body: Center(
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, 
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+        // main column
+        body: Column(
           children: [
-          InkWell(    // its used to detect taps   -> to make cards tappable to play respective video
-            onTap: () {
-              // navigation to video player
-              print('Card tapped.');
-            },
-            child: Card(
-                color: Colors.lightBlue[50], // Set background color of card
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                  side: const BorderSide(color: Colors.blue, width: 1),
+            Container(
+              height: 130,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(50),
                 ),
-                elevation: 4, // shadow effect add karega
-                child: SizedBox(
-                    width: 350,
-                    height: 450,
-                    child: Padding(
-                        padding: const EdgeInsets.all(16.0), // Adds padding inside the card
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Image.network(
-                              'https://imgs.search.brave.com/FlIW1TP283PAE2mjz4ZcEpvfX3scOMnlILqB8BMqi0U/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA3LzE4LzA0LzYz/LzM2MF9GXzcxODA0/NjM2NF9rWGtTWGJG/dVZHeHNBNXVxZFlj/S0Q5SllIMlVrTjVi/Ui5qcGc', // Example image URL
-                              height: 300,
-                              width: 300,
-                              fit: BoxFit.cover, //// cover the entire space of the container, potentially cropping parts of the image if necessary.   // helps avoid stretching
-                            ),
-                            const SizedBox(height: 8),
-                            const Text("This is a card"),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                ElevatedButton(
-                                  onPressed: () {
-                                    print("Clicked 1");
-                                  },
-                                  child: const Text("Btn 1"), ////const
-                                ),
-                                const SizedBox(
-                                    width: 18), // just for space in between
-                                ElevatedButton(
-                                  onPressed: () {
-                                    print("Clicked 2");
-                                  },
-                                  child: const Text("Btn 2"),
-                                )
-                              ],
-                            ),
-                          ],
-                        )
-                      )
-                    )
-                  )
-                ), // card1 ends
-          Card(
-              elevation: 4, // Adds shadow for better visibility
-              child: Padding(
-                  padding: const EdgeInsets.all(
-                      16.0), // Adds padding inside the card
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Image.network(
-                        'https://imgs.search.brave.com/dOacrsHdzMbbE5ymj3_MpzS2jcbj-Ui3p8MeO_-zR18/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNy8w/Mi8wOC8xNy8yNC9m/YW50YXN5LTIwNDk1/NjdfNjQwLmpwZw',
-                        height: 300,
+                color: Color.fromARGB(255, 10, 10, 10),
+              ),
+              child: Stack(
+                children: [
+                  Positioned(
+                      top: 40,
+                      left: 0,
+                      child: Container(
+                        height: 50,
                         width: 300,
-                        fit: BoxFit.cover,
-                      ),
-                      const SizedBox(height: 8),
-                      const Text("This is a card"),
-                      Row(
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              print("Clicked 1");
-                            },
-                            child: const Text("Btn 1"), ////const
-                          ),
-                          const SizedBox(width: 18),
-                          ElevatedButton(
-                            onPressed: () {
-                              print("Clicked 2");
-                            },
-                            child: const Text("Btn 2"),
-                          )
-                        ],
-                      )
-                    ],
-                  ))), //card2 ends here
-        ])));
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(50),
+                              bottomRight: Radius.circular(50)),
+                        ),
+                      )),
+                  Positioned(
+                      top: 50,
+                      left: 20,
+                      child: Text(
+                        "Data Whinners",
+                        style: TextStyle(fontSize: 20, color: Colors.black),
+                      ))
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Wrap(				// Using Wrap instead of Row, to wrap the children to next line. as row does not support it
+					spacing: 5,		// horizontal spacing between children
+					runSpacing: 30, 	// vertical spacing between lines 	
+					children: [
+						// _Card is our Custom widget for creating flutter Cards with custom Image, title, description
+						_Card(
+							description: "Coding is life, and in life; you will die ...",
+							imageUrl: "https://imgs.search.brave.com/iETvXTTeChlNeeUUHuUICzN3esBjUBohotOr2xVmGVY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cHJlbWl1bWJlYXQu/Y29tL2Jsb2cvd3At/Y29udGVudC91cGxv/YWRzLzIwMTkvMTIv/dGh1bWJuYWlsLWNv/dmVyLmpwZz93PTg3/NSZoPTQ5MCZjcm9w/PTE",
+							mainTitle: "How to Learn Coding in 2025",
+							subTitle: "FreeCodeCampORG",
+							),
+						_Card(
+							description: "Coding is life, and in life; you will die ...",
+							imageUrl: "https://imgs.search.brave.com/fmck9tRe8z-vCaPxNQNJrruVgQHi8dlSuFV3Wjbl7qM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9saWNr/ZC5jby93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMi8xMS9DYW52/YS1Zb3VUdWJlLVRo/dW1ibmFpbC1jcmVh/dG9yLmpwZWc",
+							mainTitle: "How to Learn Coding in 2025",
+							subTitle: "FreeCodeCampORG",
+							),
+						_Card(
+							description: "Coding is life, and in life; you will die ...",
+							imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkYrUxfJntqXN9ZSp1Nj6Trfh7scBOvkHH2w&s",
+							mainTitle: "How to Learn Coding in 2025",
+							subTitle: "FreeCodeCampORG",
+							),
+						_Card(
+							description: "Coding is life, and in life; you will die ...",
+							imageUrl: "https://imgs.search.brave.com/B4OMBqpifyDVeVKMEF094wUTbi8KtbMezEixEPD5MrY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuY3RmYXNzZXRz/Lm5ldC9iNGsxNmM3/bHc1dXQvNFlWMEVW/T1F5R2JQQ0pzcmxh/c1ZaSS80NjA1Mjhl/Y2Q2YjhjNzdkYzhk/YzVjMmE4NzI5NWNm/My9CbG9nX18zMl8u/anBnP2ZtPXdlYnAm/dz0xMDgwJnE9NTA",
+							mainTitle: "How to Learn Coding in 2025",
+							subTitle: "FreeCodeCampORG",
+						),
+						_Card(
+							description: "Coding is life, and in life; you will die ...",
+							imageUrl: "https://imgs.search.brave.com/umyCNuiHS5gJ95jWM8J6tRmHXDGGLHqq2w4YOoXT_Qs/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS9C/c0RvTFZNbm1acy9t/YXhyZXNkZWZhdWx0/LmpwZw",
+							mainTitle: "How to Learn Coding in 2025",
+							subTitle: "FreeCodeCampORG",
+							),
+						_Card(
+							description: "Coding is life, and in life; you will die ...",
+							imageUrl: "https://imgs.search.brave.com/34rTFAR2uBjuqzUmrv7GsLaZFpwQGvNOSnDaArnTWoI/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9pLnl0/aW1nLmNvbS92aS83/d25vdmU3Sy1aUS9t/YXhyZXNkZWZhdWx0/LmpwZw",
+							mainTitle: "How to Learn Coding in 2025",
+							subTitle: "FreeCodeCampORG",
+							),
+                ],
+              ),
+			 	],		//column ar
+      	)
+	 );
+  }
+}
+
+
+// making custom card class, that takes in input, so each card is dynamic
+// to make code lines lesser
+class _Card extends StatelessWidget{
+	final String imageUrl;
+	final String mainTitle;
+	final String subTitle;
+	final String description;
+
+	// Constructor
+	const _Card({
+    Key? key,
+    required this.imageUrl,
+    required this.mainTitle,
+    required this.subTitle,
+    required this.description,
+  }) : super(key: key);
+  
+  @override
+  Widget build(BuildContext context) {
+		return Card(
+			// CARD implementation
+			elevation: 20,
+			color: Colors.grey[600],
+			child: Container(
+				height: 181,
+				width: 500,
+				decoration: BoxDecoration(
+					color: const Color.fromARGB(255, 255, 255, 255),
+					borderRadius: BorderRadius.only(
+						bottomRight: Radius.circular(50),
+					)),
+				child: Stack(
+				children: [
+					Positioned(
+						left: 10,
+						child: SizedBox(
+							height: 150,
+							width: 150,
+							child: ClipRRect(
+								// have to use this to give image a rounded border
+								borderRadius: BorderRadius.only(
+										bottomRight: Radius.circular(50)),
+								child: Image.network(
+									imageUrl,
+									fit: BoxFit
+										.cover, //// cover the entire space of the container, potentially cropping parts of the image if necessary.   // helps avoid stretching
+								)),
+						)),
+					Positioned(
+						top: 35,
+						left: 170,
+						child: Container(
+							height: 170,
+							width: 280,
+							child: Column(
+								crossAxisAlignment: CrossAxisAlignment.start,
+								children: [
+								Text(
+									mainTitle,
+									style: TextStyle(
+										fontSize: 20,
+										color: Colors.blue[900],
+										fontWeight: FontWeight.bold),
+								),
+								Text(
+									subTitle,
+									style: TextStyle(
+										fontSize: 15, color: Colors.grey),
+								),
+								Divider(
+									color: Colors.black,
+								),
+								Text(
+									description,
+									style: TextStyle(
+										fontSize: 15, color: Colors.black87),
+								),
+								SizedBox(height: 15,),
+								Row(
+									mainAxisAlignment: MainAxisAlignment.end,
+									children: [
+									SizedBox(width: 30,),
+									Container(
+									child: ElevatedButton(
+										style: ElevatedButton.styleFrom(
+											backgroundColor: Colors.black45, // Set the background color
+											foregroundColor: Colors.white, // Set the text color
+										),
+										onPressed: () {
+											// Show Snackbar when button is clicked
+											ScaffoldMessenger.of(context)
+												.showSnackBar(
+											SnackBar(
+												content: const Text(
+													'Redirecting to youtube.com'),
+												action: SnackBarAction(
+													label: 'cancel',
+													onPressed: () {
+													// Example: Undo action can be handled here
+													print('cancel');
+													},
+												),
+											),
+											);
+											print("Clicked btn");
+										},
+										child:
+											const Text("visit"), ////const
+									),
+								)]),
+								],
+							),
+						))
+				],
+				),
+			),
+		);
   }
 }

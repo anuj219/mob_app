@@ -67,13 +67,14 @@ class _ScreenState extends State<Screen> {
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: GridView.count(
+                child: Center(
+                  child: GridView.count(
                   crossAxisCount: 3,
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
-                  childAspectRatio: 2.2,  // Adjusted for wider cards
+                  childAspectRatio: 3.0,  // Adjusted for wider cards
                   children: [
                     _Card(
                       description: "Coding is life, and in life; you will die ...",
@@ -119,6 +120,7 @@ class _ScreenState extends State<Screen> {
                     ),
                   ],
                 ),
+                ),
               ),
             ),
           ),
@@ -146,93 +148,85 @@ class _Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 20,
-      color: Colors.grey[600],
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(50),
+    return GestureDetector(
+      onTap: () {
+        // Navigate to the VideoPlayerPage when the card is tapped
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => VideoPlayerPage(
+              description: mainTitle,
+              link: link,
+            ),
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(
-                  bottomRight: Radius.circular(50),
+        );
+      },
+      child: Card(
+        elevation: 20,
+        color: Colors.grey[600],
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(50),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(50),
+                  ),
+                  child: Image.network(
+                    imageUrl,
+                    height: 100,
+                    width: 150,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                child: Image.network(
-                  imageUrl,
-                  height: 100,
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              SizedBox(width: 8),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      mainTitle,
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.blue[900],
-                        fontWeight: FontWeight.bold,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Text(
-                      subTitle,
-                      style: TextStyle(fontSize: 12, color: Colors.grey),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Divider(color: Colors.black),
-                    Text(
-                      description,
-                      style: TextStyle(fontSize: 12, color: Colors.black87),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    Spacer(),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.black45,
-                          foregroundColor: Colors.white,
-                          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                SizedBox(width: 8),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        mainTitle,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.blue[900],
+                          fontWeight: FontWeight.bold,
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => VideoPlayerPage(
-                                description: mainTitle,
-                                link: link,
-                              ),
-                            ),
-                          );
-                        },
-                        child: const Text("Watch Video", style: TextStyle(fontSize: 12)),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                    ),
-                  ],
+                      Text(
+                        subTitle,
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Divider(color: Colors.black),
+                      Text(
+                        description,
+                        style: TextStyle(fontSize: 12, color: Colors.black87),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
 
 class VideoPlayerPage extends StatefulWidget {
   final String description;
@@ -269,6 +263,19 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     super.dispose();
   }
 
+  void _seekRelative(Duration duration) {
+    final newPosition = _controller.value.position + duration;
+    _controller.seekTo(newPosition);
+  }
+
+  String _formatDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    final hours = twoDigits(duration.inHours);
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+    return duration.inHours > 0 ? '$hours:$minutes:$seconds' : '$minutes:$seconds';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -286,15 +293,76 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.4, // 40% of screen height
+                height: MediaQuery.of(context).size.height * 0.7,
                 child: _controller.value.isInitialized
-                    ? AspectRatio(
-                        aspectRatio: _controller.value.aspectRatio,
-                        child: VideoPlayer(_controller),
+                    ? Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          AspectRatio(
+                            aspectRatio: _controller.value.aspectRatio,
+                            child: VideoPlayer(_controller),
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: GestureDetector(
+                                  onDoubleTap: () => _seekRelative(const Duration(seconds: -10)),
+                                  child: Container(
+                                    color: Colors.transparent,
+                                    height: double.infinity,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: GestureDetector(
+                                  onDoubleTap: () => _seekRelative(const Duration(seconds: 10)),
+                                  child: Container(
+                                    color: Colors.transparent,
+                                    height: double.infinity,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       )
-                    : Center(child: CircularProgressIndicator()),
+                    : const Center(child: CircularProgressIndicator()),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 8),
+              if (_controller.value.isInitialized) ...[
+                // Video progress
+                ValueListenableBuilder(
+                  valueListenable: _controller,
+                  builder: (context, VideoPlayerValue value, child) {
+                    return SizedBox(
+                      width: 1000,
+                      child: Column(
+                      children: [
+                        Slider(
+                          value: value.position.inMilliseconds.toDouble(),
+                          min: 0,
+                          max: value.duration.inMilliseconds.toDouble(),
+                          onChanged: (newPosition) {
+                            _controller.seekTo(Duration(milliseconds: newPosition.toInt()));
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(_formatDuration(value.position)),
+                              Text(_formatDuration(value.duration)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    );
+                  },
+                ),
+                // const SizedBox(height: 8),
+              ],
               IconButton(
                 icon: Icon(
                   _isPlaying ? Icons.pause : Icons.play_arrow,

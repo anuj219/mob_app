@@ -1,0 +1,86 @@
+A card is a sheet of Material used to represent some related information, 
+It is a container widget with rounded corners, elevation, and shadow, designed to visually group and segment related content.
+for example an album, a meal, contact details, etc.
+The default Card is the elevated card
+
+other types - Card.filled, Card.outlined
+https://api.flutter.dev/flutter/material/Card/Card.filled.html
+https://api.flutter.dev/flutter/material/Card/Card.outlined.html
+
+Constructor of card: 
+Card({Key? key, Color? color, Color? shadowColor, Color? surfaceTintColor, double? elevation, ShapeBorder? shape, bool borderOnForeground = true, EdgeInsetsGeometry? margin, Clip? clipBehavior, Widget? child, bool semanticContainer = true})
+Creates a Material Design card.
+
+Inheritance - 
+Object > DiagnosticableTree > Widget > StatelessWidget > Card
+
+
+body: Center(
+    child: Card(
+        // background color
+        color: Colors.blue,
+
+        // gives elevated effect
+        elevation: 4,
+
+        child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+            ... 
+            // content to be displayed
+            // (image, button, Icons, rows)
+            ]
+        )
+    )// end of child 
+)// end of Center
+
+
+
+Points - 
+    Image laane ke liye settings karni padi
+    pubscpec yaml me add kiya
+    assets folder banaya
+
+    Stack() vs Column
+
+    Positioned  -- always used inside stack only
+
+    ClipRRect(				// have to use this to give image a rounded border
+
+    Wrap(				// Using Wrap instead of Row, to wrap the children to next line. as row does not support it
+
+
+
+    Positioned(
+                      child: Card(
+                    elevation: 10,
+                    shadowColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Container(
+                      height: 200,
+                      width: 150,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: DecorationImage(
+                              image: AssetImage("assets/snippet.png")
+                              )
+                            ),
+                    ),
+                  )
+                  )
+
+_Card(
+  description: "Coding is life, and in life; you will die ...",
+  imageUrl: "https://imgs.search.brave.com/iETvXTTeChlNeeUUHuUICzN3esBjUBohotOr2xVmGVY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cHJlbWl1bWJlYXQu/Y29tL2Jsb2cvd3At/Y29udGVudC91cGxv/YWRzLzIwMTkvMTIv/dGh1bWJuYWlsLWNv/dmVyLmpwZz93PTg3/NSZoPTQ5MCZjcm9w/PTE",
+  mainTitle: "How to Learn Coding in 2025",
+  subTitle: "FreeCodeCampORG",
+  ),
+
+https://imgs.search.brave.com/iETvXTTeChlNeeUUHuUICzN3esBjUBohotOr2xVmGVY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cHJlbWl1bWJlYXQu/Y29tL2Jsb2cvd3At/Y29udGVudC91cGxv/YWRzLzIwMTkvMTIv/dGh1bWJuYWlsLWNv/dmVyLmpwZz93PTg3/NSZoPTQ5MCZjcm9w/PTE
+How to Learn Coding in 2025
+FreeCodeCampORG
+Coding is life, and in life; you will die ...
+
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkYrUxfJntqXN9ZSp1Nj6Trfh7scBOvkHH2w&s

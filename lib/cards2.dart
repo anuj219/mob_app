@@ -118,7 +118,7 @@ class _ScreenState extends State<Screen> {
                             mainTitle: "How to look handsome",
                             subTitle: "RandomGuy",
                             link:
-                                "https://r3---sn-gwpa-cvhez.googlevideo.com/videoplayback?expire=1739476765&ei=vPqtZ8TaPP636dsPt4an4Q8&ip=176.1.223.29&id=o-AJOq0YPmLr0BD6vOE8Nx4XcPJL3J-0_NRqJkK0e5XZny&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AUWDL3zLIxHOUxkbhQKEZvSZMl43kAZOoMaIRAui1nMsMRqOkc9bCP_0b9V1UUEhLOtajeU4sxPHGoKB&spc=RjZbScB9HdcNpVRyFWNBa_uC4lO8jITS5cH9RmswUbUzRVFBoPEg&vprv=1&svpuc=1&mime=video%2Fmp4&ns=dqtLTZZ5qiOtHNZS7P57qTIQ&rqh=1&cnr=14&ratebypass=yes&dur=7.685&lmt=1708738867597515&fexp=51326932%2C51355912&c=WEB&sefc=1&txp=4530434&n=FF-2aSDHESxlZQ&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRgIhAN9brnd3FwMpv5gWinczLH666vCAOk-wnCdnseeW91aRAiEAwTFPLZrvwRq5yK7NRGZJj8ln5g4gz6SH6H7Yp2CfWYE%3D&pot=MnSByr7AHmnwK4H22d5UCRymdUswq2SC9C-cTc3VX3CkDpEuqAHNPjOFdEk_-LKpVgIVxucD1TYu6_eAz470u73Yv899Ivg8ATehcRzrIgAETN3LENH6jge7GNzFo3F3RoX785MZx-8ZLcpcWWuTzmSmoL91vQ==&cms_redirect=yes&met=1739455171,&mh=bl&mip=2405:201:11:d08d:70f0:3627:9835:9019&mm=31&mn=sn-gwpa-cvhez&ms=au&mt=1739454801&mv=m&mvi=3&pcm2cms=yes&pl=50&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pcm2cms,pl,rms&lsig=AGluJ3MwRAIgI6yK-0MGT_FdmHDY-w4xYF2xEwBFAWnwXE7KzIPYIfoCIBDetgDPC_70jue7jClbeQcFnXespK_ZavRprmxTac3g",
+                                "https://www.bigbuckbunny.org/",
                           ),
                           _Card(
                             description:
@@ -129,7 +129,7 @@ class _ScreenState extends State<Screen> {
                                 "Tukka Strategy for JEE MAIN 2025 🎯 50% OFF on Tricks COURSE⌛ #jeemain2025 #arsquad",
                             subTitle: "AR SQUAD",
                             link:
-                                "https://r1---sn-cvh76nlz.googlevideo.com/videoplayback?expire=1739477339&ei=-_ytZ_wlybfp2w-AxuVw&ip=176.6.131.241&id=o-AOEsCbdxW5_MuT4jC4JriHjwx3WDSpIgmQoSE7ijdp2d&itag=18&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&bui=AUWDL3z60A6FlLMh4C4gsfq3AjeAmIj59PumMVOSg-nRS8BO0alt-gFyzoJZvakOR8_fMctSX99bdEYP&spc=RjZbSRFNHN9WZegZGeVYfJj0nkLTTqEdYNPRTUQvnpvJNfW5lGrt&vprv=1&svpuc=1&mime=video%2Fmp4&ns=2cdXp2wRAU1gEU8USyj4VWMQ&rqh=1&gir=yes&clen=63560154&ratebypass=yes&dur=1215.750&lmt=1737497239118040&fexp=24350590,24350737,24350827,24350961,24350977,24350978,24351082,24351132,24351184,51326932,51355912&c=WEB&sefc=1&txp=5438534&n=alzTXfdUUPJYgw&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cns%2Crqh%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AJfQdSswRAIgEtwwHzBM7daqz-4GDzrk50_HILurqPZ-ybBsAMp9K8sCIHHRBJVMhkwQWq4pzxZ43FQTysNg4h5d8v_cYlZJTFbK&pot=MnTHLdPJVcuCdscRWC6PZlsPucomAVICpfBugxhDTPTxNvYDESGf5kR4mBUMl9Qgijy7-k6Li0AiFGaApR7zASKnizlAZcjWwwOWN4Vwa1YIroP2Rllfr7FggYZcZCBojY42ZrwxyjtC-t67sWHRImOy-Xjrzw==&cm2rm=sn-gwpa-pmhd7e,sn-gwpa-cvhee7s&rrc=80,80&req_id=aebe1a7d566aa3ee&redirect_counter=2&cms_redirect=yes&cmsv=e&met=1739455744,&mh=ek&mip=2405:201:11:d08d:70f0:3627:9835:9019&mm=30&mn=sn-cvh76nlz&ms=nxu&mt=1739455231&mv=m&mvi=1&pl=50&rms=nxu,au&lsparams=met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=AGluJ3MwRQIgQMSokic-Pz-N728wFFaF0cAvvzHQ7k1Dl41iQkSLkDMCIQCP4wHzatfG2qy02Li0RVGqfEjjxHpclA2lnPhFy1KO6A%3D%3D",
+                                "https://www.bigbuckbunny.org/",
                           ),
                           _Card(
                             description:
@@ -369,6 +369,14 @@ class VideoPlayerPage extends StatefulWidget {
 class _VideoPlayerPageState extends State<VideoPlayerPage> {
   late VideoPlayerController _controller;
   bool _isPlaying = false;
+  bool isMinimized = true;
+
+
+  void toggleMiniPlayer() {
+    setState(() {
+      isMinimized = !isMinimized;
+    });
+  }
 
   @override
   void initState() {
@@ -440,6 +448,57 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                                   ),
                                 ),
                               ),
+                               DraggableScrollableSheet(
+            initialChildSize: isMinimized ? 0.1 : 0.6, // Start minimized
+            minChildSize: 0.1, // Mini player size
+            maxChildSize: 0.6, // Expanded player size
+            builder: (context, scrollController) {
+              return Container(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+                ),
+                child: Column(
+                  children: [
+                    GestureDetector(
+                      onTap: toggleMiniPlayer,
+                      child: Container(
+                        height: 50,
+                        color: Colors.black,
+                        child: Row(
+                          children: [
+                            Icon(Icons.arrow_drop_up, color: Colors.white),
+                            Text(
+                              "Now Playing",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Spacer(),
+                            IconButton(
+                              icon: Icon(Icons.close, color: Colors.white),
+                              onPressed: () {
+                                setState(() {
+                                  isMinimized = true;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: _controller.value.isInitialized
+                          ? AspectRatio(
+                              aspectRatio: _controller.value.aspectRatio,
+                              child: VideoPlayer(_controller),
+                            )
+                          : Center(child: CircularProgressIndicator()),
+                    ),
+                    VideoProgressIndicator(_controller, allowScrubbing: true),
+                  ],
+                ),
+              );
+            },
+          ),
                               Expanded(
                                 child: GestureDetector(
                                   onDoubleTap: () => _seekRelative(
@@ -450,6 +509,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                                   ),
                                 ),
                               ),
+                              
                             ],
                           ),
                         ],
